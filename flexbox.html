@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox tutorial</title>
+    <style>
+        .container{
+            height:1000px;
+            width:1000px;
+            background-color:black;
+            display:flex;
+            flex-direction:column-reverse;
+            justify-content:center;
+            align-items: center; /*no wrap*/
+            flex-wrap:wrap;
+            align-content:center;/*when wrap is their*/
+            row-gap:40px;/*fixed neccesary gap*/
+            column-gap:30px;/*fixed neccesary gap*/
+        }
+        .container .child{
+            height:200px;
+            width:200px;
+            background-color:fuchsia;
+            border:7px solid blue;
+            font-size:4em;
+        }
+        #order{
+            order:-2;
+        }
+        .contain{
+            height:1000px;
+            width:1000px;
+            background-color:brown;
+            display:flex;
+            flex-direction:row;
+            flex-grow:1; /*spacing of element*/
+        }
+        .contain .child{
+            height:100px;
+            width:100px;
+            font-size:5em;
+            border:7px solid red;
+            background-color:rgb(123, 123, 169);
+        }
+        .contain #ord{
+            order:-2;
+            flex-grow:4;
+        }
+        .contain #or{
+            flex-shrink:3; /*it can shrink upto 3 of it size*/
+            align-self:center; /*specific elements are aligned*/
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="child">1</div>
+        <div class="child">2</div>
+        <div class="child" id="order">3</div>
+        <div class="child">4</div>
+        <div class="child">5</div>
+        <div class="child">6</div>
+        <div class="child">7</div>
+    </div>
+
+    <div class="contain">
+        <div class="child">1</div>
+        <div class="child" style="flex-grow:2">2</div>
+        <div class="child" id="ord">3</div>
+        <div class="child">4</div>
+        <div class="child" id="or">5</div>
+        <div class="child">6</div>
+        <div class="child">7</div>
+    </div>
+</body>
+</html>

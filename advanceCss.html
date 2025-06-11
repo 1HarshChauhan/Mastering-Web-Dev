@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root{
+            --heavy:3em;
+        }
+        .s{
+            height:calc(20px*10);
+            width:calc(100%/3);
+            background-image:radial-gradient(red,blue);
+        }
+        /*space matter*/
+        :is(header, footer) :is(h1, h2, h3, h4, h5, h6){ 
+            font-weight:bolder;
+            font-size:var(--heavy,2em);
+            text-decoration:underline;
+        }
+        header > h3::before{
+            content:"text before this";
+            color:brown;
+        }
+        footer >h5::after{
+            content:"text after the content";
+            text-transform:capitalize;
+        }
+        header:not(hee){ 
+            color: blue;
+        }
+
+        /*transform*/
+        .transform{
+            height:1000px;
+            width:1000px
+        }
+        .transform .blue{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:space-around;
+            align-content:space-around;
+        }
+        :is(.boxes_blue, .boxes_grey){
+            height:300px;
+            width:300px;            
+        }
+        .boxes_blue{
+            background-image:linear-gradient(violet,blue);
+        }
+        .boxes_grey{
+            background-image:radial-gradient(rgb(47, 46, 46),rgb(206, 203, 203))
+        }
+        .transform .grey{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:space-around;
+            align-content:space-around;
+        }
+        .one:hover{
+            transform: rotate(40deg);
+        }
+        .two:hover{
+            transform:rotateX(0.124turn);
+        }
+        .three:hover{
+            transform:scaleY(1.6);
+        }
+        .four:hover{
+            transform:skew(40deg);
+        }
+        .five:hover{
+            transform:translateY(145%);
+        }
+        .six:hover{
+            transform :scale(1.5) skew(30deg) rotate(45deg) translateX(35%);
+        }
+
+        /*transition*/
+        .boxes_blue{
+            transition:all 2s cubic-bezier(1, 0.05, 0, 1.15) 1s;
+        }
+        .boundr{
+            height:100vw;
+            width:10vw;
+            position:fixed;
+            left:90%;
+            top:0%;
+            background-color:blue;
+            transition:all 2s ease-in-out 0.3s;
+        }
+        .boundr:hover{
+            transform:translateX(-100%) scaleX(3);
+            background-color:red;
+        }
+
+        /*animation*/
+        .fa-heart{
+            color:red;
+            font-size:5em;
+            position:relative;
+            animation:movingHeart 3s ease-in-out 0.3s alternate infinite;
+
+        }
+        @keyframes movingHeart{
+            from{
+                font-size:5em;
+                color:red;
+                left:0%;
+            }
+            to{
+                font-size:10em;
+                color:crimson;    
+                left:50%;  
+            }
+        }
+
+        /*media query for making it mobile and laptop both compatible*/
+        .redbox{
+            display:flex;
+            background-color:red;
+            height:1000px;
+            width:1000px;
+        }
+        .reddy{
+            background-color:blue;
+            height:100px;
+            width:100px;
+            border: 20px solid green;
+            border-radius:5px 4px 3px 6px;
+        }
+        @media only screen and (max-width:455px){
+            .redbox{
+                flex-direction:column;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>hello world</h1>
+        <h2>hello world</h2>
+        <h3>hello world</h3>
+        <h4 class="hee">hello world</h4>
+        <h5>hello world</h5>
+        <h6>hello world</h6>
+
+    </header>
+    <footer>
+        <h1>hello world</h1>
+        <h2>hello world</h2>
+        <h3>hello world</h3>
+        <h4>hello world</h4>
+        <h5>hello world</h5>
+        <h6>hello world</h6>
+    </footer>
+    <div class="s"></div>
+
+    <div class="transform">
+        <div class="blue">
+        <div class="boxes_blue one"></div>
+        <div class="boxes_blue two"></div>
+        <div class="boxes_blue three"></div>
+        <div class="boxes_blue four"></div>
+        <div class="boxes_blue five"></div>
+        <div class="boxes_blue six"></div>
+        </div>
+    </div>
+    <div class="redbox">
+        <div class="reddy"></div>
+        <div class="reddy"></div>
+        <div class="reddy"></div>
+        <div class="reddy"></div>
+    </div>
+    <div class="boundr"></div>
+    <i class="fa-solid fa-heart"></i>
+</body>
+</html>
